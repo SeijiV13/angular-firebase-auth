@@ -1,0 +1,29 @@
+
+  <div class="main">
+    <p class="sign">Sign in</p>
+    <form class="form1" [formGroup]="form">
+      <input class="un " formControlName="email" type="text"  placeholder="Email"/>
+      <input class="pass" formControlName="password" type="password" placeholder="Password"/>
+
+      <ng-container *ngIf="page === 'login'">
+          <a class="submit" (click)="login()">Sign in</a>
+          <br><br>
+
+           <div (click)="loginWithGoogle()" class="btn"  role="button" style="text-transform:none">
+             <img width="20px" style="margin-bottom:0px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+              Login with Google
+           </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="page === 'register'">
+          <a class="submit" (click)="register()">Register</a>
+      </ng-container>
+
+       <br>
+       <br>
+      <div class="link" *ngIf="page === 'register'" (click)="page = 'login'">Sign In</div>
+      <div class="link" *ngIf="page === 'login'" (click)="page = 'register'">Register</div>
+    </form>
+
+  </div>
